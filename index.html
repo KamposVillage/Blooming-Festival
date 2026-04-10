@@ -291,13 +291,41 @@
     }
 
     @media (max-width: 860px) {
-      .poster-grid,
       .program-grid,
       .gallery-grid,
       .contact-grid,
       .contact-row {
         grid-template-columns: 1fr;
       }
+
+      .topbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .brand {
+        justify-content: center;
+      }
+
+      .header-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav-link,
+      .lang-button {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
 
       .topbar {
         flex-direction: column;
@@ -573,4 +601,3 @@
   </script>
 </body>
 </html>
-
