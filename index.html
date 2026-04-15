@@ -95,7 +95,11 @@
       flex-wrap: wrap;
     }
 
-    nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
 
     .nav-link,
     .lang-button {
@@ -140,7 +144,9 @@
       gap: 1.4rem;
     }
 
-    .hero-box { padding: 2rem; }
+    .hero-box {
+      padding: 2rem;
+    }
 
     .eyebrow {
       display: inline-block;
@@ -152,7 +158,10 @@
       font-size: 0.92rem;
     }
 
-    h1, h2, h3 { margin: 0; line-height: 1.15; }
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.15;
+    }
 
     h1 {
       font-size: clamp(2.3rem, 5vw, 4.5rem);
@@ -161,48 +170,14 @@
 
     .hero-box p,
     .section-copy,
-    .info-card p,
-    .placeholder {
+    .info-card p {
       color: var(--muted);
       line-height: 1.8;
       font-size: 1.02rem;
     }
 
-    .contact-row {
-      margin-top: 1.4rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .contact-highlight {
-      padding: 1rem 1.1rem;
-      background: linear-gradient(180deg, #fff, #fff5f8);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-    }
-
-    .contact-highlight .label {
-      display: inline-block;
-      margin-bottom: 0.5rem;
-      padding: 0.35rem 0.65rem;
-      border-radius: 999px;
-      background: var(--pink-soft);
-      color: var(--pink-dark);
-      font-size: 0.85rem;
-      font-weight: 800;
-    }
-
-    .contact-highlight strong {
-      display: block;
-      font-size: 1.05rem;
-      line-height: 1.7;
-      word-break: break-word;
-    }
-
     .poster-grid,
     .program-grid,
-    .gallery-grid,
     .contact-grid {
       display: grid;
       gap: 1rem;
@@ -213,20 +188,12 @@
       grid-template-columns: 1fr;
     }
 
-    .program-grid,
-    .gallery-grid,
-    .contact-grid {
+    .program-grid {
       grid-template-columns: 1fr 1fr;
     }
 
-    .poster-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .program-grid,
-    .gallery-grid,
     .contact-grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .image-frame {
@@ -243,6 +210,15 @@
       height: auto;
     }
 
+    .pdf-frame {
+      width: 100%;
+      height: 1100px;
+      border: none;
+      border-radius: 14px;
+      display: block;
+      background: white;
+    }
+
     .section-title {
       font-size: clamp(1.8rem, 3vw, 2.5rem);
       margin-bottom: 0.8rem;
@@ -253,7 +229,9 @@
       max-width: 75ch;
     }
 
-    .panel { padding: 1.4rem; }
+    .panel {
+      padding: 1.4rem;
+    }
 
     .info-card {
       padding: 1.2rem;
@@ -267,19 +245,9 @@
       margin-bottom: 0.8rem;
     }
 
-    .placeholder {
-      min-height: 250px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      font-weight: 700;
-      background: linear-gradient(180deg, #fff, #fff5f8);
-      border: 2px dashed var(--line);
-      border-radius: 18px;
-      padding: 1rem;
+    footer {
+      padding: 0 0 2.5rem;
     }
-
-    footer { padding: 0 0 2.5rem; }
 
     .footer-box {
       padding: 1.2rem 1.4rem;
@@ -292,9 +260,7 @@
 
     @media (max-width: 860px) {
       .program-grid,
-      .gallery-grid,
-      .contact-grid,
-      .contact-row {
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
@@ -325,16 +291,9 @@
         width: 100%;
         max-width: 320px;
       }
-    }
 
-      .topbar {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .header-actions,
-      nav {
-        justify-content: center;
+      .pdf-frame {
+        height: 700px;
       }
     }
   </style>
@@ -355,7 +314,6 @@
             <nav>
               <button class="nav-link active" data-view="home" data-i18n="nav_home">Αρχική</button>
               <button class="nav-link" data-view="program" data-i18n="nav_program">Πρόγραμμα Φεστιβάλ</button>
-              <button class="nav-link" data-view="gallery" data-i18n="nav_gallery">Φωτογραφίες</button>
               <button class="nav-link" data-view="contact" data-i18n="nav_contact">Επικοινωνία</button>
             </nav>
             <button class="lang-button" id="langToggle">EN</button>
@@ -375,9 +333,10 @@
                 Μια ανοιξιάτικη γιορτή αφιερωμένη στην ομορφιά της φύσης, στις ανθισμένες κερασιές και στη μοναδική ατμόσφαιρα του Κάμπου.
               </p>
 
-            <div class="poster-grid">
-              <div class="image-frame">
-                <img src="images/poster-gr.jpg" alt="Blooming Festival poster" id="poster-img" />
+              <div class="poster-grid">
+                <div class="image-frame">
+                  <img src="images/poster-gr.jpg" alt="Blooming Festival poster" id="poster-img" />
+                </div>
               </div>
             </div>
           </div>
@@ -389,32 +348,23 @@
           <div class="card panel">
             <h2 class="section-title" data-i18n="program_title">Πρόγραμμα Φεστιβάλ</h2>
             <p class="section-copy" data-i18n="program_text">Δείτε το επίσημο πρόγραμμα της εκδήλωσης.</p>
-            <div class="program-grid">
-              <div class="image-frame">
+
+            <div class="program-grid" id="program-grid">
+              <div class="image-frame" id="program-frame-1">
                 <img src="images/program-1-gr.jpg" alt="Festival program page 1" id="program-img-1" />
               </div>
-              <div class="image-frame">
+
+              <div class="image-frame" id="program-frame-2">
                 <img src="images/program-2-gr.jpg" alt="Festival program page 2" id="program-img-2" />
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section class="view" id="view-gallery">
-        <div class="container">
-          <div class="card panel">
-            <h2 class="section-title" data-i18n="gallery_title">Φωτογραφίες</h2>
-            <p class="section-copy" data-i18n="gallery_text">Φωτογραφίες από προηγούμενα φεστιβάλ.</p>
-            <div class="gallery-grid" id="gallery-container"></div>
-              <div class="image-frame">
-                <img src="images/image_2.jpg" alt="Festival photo 2" />
-              </div>
-              <div class="image-frame">
-                <img src="images/image_3.jpg" alt="Festival photo 3" />
-              </div>
-              <div class="image-frame">
-                <img src="images/image_4.jpg" alt="Festival photo 4" />
+              <div class="image-frame" id="program-pdf-wrapper" style="display: none;">
+                <iframe
+                  id="program-pdf"
+                  class="pdf-frame"
+                  src="images/program-en.pdf"
+                  title="Festival Program PDF">
+                </iframe>
               </div>
             </div>
           </div>
@@ -429,15 +379,30 @@
               <div class="info-card">
                 <h3 data-i18n="contact_email_title">Ηλεκτρονικό Ταχυδρομείο</h3>
                 <p>
-                  <span data-i18n="email_label" style="visibility:hidden;">Email</span><br>
-                  <strong><a href="mailto:sumkambou@cytanet.com.cy">sumkambou@cytanet.com.cy</a></strong>
+                  <strong>
+                    <span data-i18n="email_label" style="visibility:hidden;">Email</span><br>
+                    <a href="mailto:sumkambou@cytanet.com.cy">sumkambou@cytanet.com.cy</a>
+                  </strong>
                 </p>
               </div>
+
               <div class="info-card">
                 <h3 data-i18n="contact_phone_title">Τηλέφωνα</h3>
                 <p>
                   <strong><a href="tel:+35799645400">+357 99645400</a></strong><br>
                   <strong><a href="tel:+35722942450">+357 22942450</a></strong>
+                </p>
+              </div>
+
+              <div class="info-card">
+                <h3 data-i18n="contact_facebook_title">Facebook</h3>
+                <p>
+                  <strong>
+                    <span data-i18n="email_label" style="visibility:hidden;">Email</span><br>
+                    <a href="https://facebook.com/kampos" target="_blank" rel="noopener noreferrer">
+                      facebook.com/kampos
+                    </a>
+                  </strong>
                 </p>
               </div>
             </div>
@@ -459,47 +424,35 @@
   <script>
     const translations = {
       el: {
-        brand: 'Blooming Festival · Κάμπος',
+        brand: 'Εκδήλωση Ανθοφορίας 2026 · Κάμπος',
         nav_home: 'Αρχική',
-        nav_program: 'Πρόγραμμα Φεστιβάλ',
-        nav_gallery: 'Φωτογραφίες',
+        nav_program: 'Πρόγραμμα Εκδήλωσης',
         nav_contact: 'Επικοινωνία',
         eyebrow: 'Sakura Festival · Kampos',
-        hero_title: 'Blooming Festival στον Κάμπο',
+        hero_title: 'Εκδήλωση Ανθοφορίας 2026 στον Κάμπο',
         hero_text: 'Μια ανοιξιάτικη γιορτή αφιερωμένη στην ομορφιά της φύσης, στις ανθισμένες κερασιές και στη μοναδική ατμόσφαιρα του Κάμπου.',
-        email_label: 'Email',
-        phones_label: 'Τηλέφωνα',
-        program_title: 'Πρόγραμμα Φεστιβάλ',
+        program_title: 'Πρόγραμμα Εκδήλωσης',
         program_text: 'Δείτε το επίσημο πρόγραμμα της εκδήλωσης.',
-        gallery_title: 'Φωτογραφίες',
-        gallery_text: 'Φωτογραφίες από προηγούμενα φεστιβάλ.',
-        gallery_placeholder_1: 'Εδώ μπορούν να προστεθούν φωτογραφίες από προηγούμενες διοργανώσεις.',
-        gallery_placeholder_2: 'Προσθέστε νέες εικόνες μέσα στον φάκελο images.',
         contact_title: 'Στοιχεία Επικοινωνίας',
         contact_email_title: 'Ηλεκτρονικό Ταχυδρομείο',
         contact_phone_title: 'Τηλέφωνα',
+        contact_facebook_title: 'Facebook',
         footer_text: 'Spring · Sakura · Kampos'
       },
       en: {
-        brand: 'Blooming Festival · Kampos',
+        brand: 'Blooming Festival 2026 · Kampos',
         nav_home: 'Home',
         nav_program: 'Festival Program',
-        nav_gallery: 'Photos',
         nav_contact: 'Contact',
         eyebrow: 'Sakura Festival · Kampos',
         hero_title: 'Blooming Festival in Kampos',
         hero_text: 'A spring celebration dedicated to nature, blooming cherry trees, and the unique atmosphere of Kampos.',
-        email_label: 'Email',
-        phones_label: 'Phones',
         program_title: 'Festival Program',
         program_text: 'View the official event program.',
-        gallery_title: 'Photos',
-        gallery_text: 'Photos from previous festivals.',
-        gallery_placeholder_1: 'Photos from previous festival editions can be added here.',
-        gallery_placeholder_2: 'Add new image files inside the images folder.',
         contact_title: 'Contact Details',
         contact_email_title: 'Email',
         contact_phone_title: 'Phone Numbers',
+        contact_facebook_title: 'Facebook',
         footer_text: 'Spring · Sakura · Kampos'
       }
     };
@@ -510,17 +463,26 @@
     const views = document.querySelectorAll('.view');
     const translatable = document.querySelectorAll('[data-i18n]');
 
+    const posterImg = document.getElementById('poster-img');
+    const programGrid = document.getElementById('program-grid');
+    const programFrame1 = document.getElementById('program-frame-1');
+    const programFrame2 = document.getElementById('program-frame-2');
+    const programPdfWrapper = document.getElementById('program-pdf-wrapper');
+    const programPdf = document.getElementById('program-pdf');
+
     function setLanguage(lang) {
       currentLang = lang;
       document.documentElement.lang = lang;
+
       translatable.forEach((element) => {
         const key = element.dataset.i18n;
         if (translations[lang][key]) {
           element.textContent = translations[lang][key];
         }
       });
+
       langToggle.textContent = lang === 'el' ? 'EN' : 'EL';
-      document.title = lang === 'el' ? 'Blooming Festival | Kampos' : 'Blooming Festival | Kampos';
+      document.title = 'Blooming Festival | Kampos';
     }
 
     function showView(viewName) {
@@ -533,6 +495,26 @@
       });
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateImages(lang) {
+      if (lang === 'el') {
+        posterImg.src = 'images/poster-gr.jpg';
+
+        programFrame1.style.display = 'block';
+        programFrame2.style.display = 'block';
+        programPdfWrapper.style.display = 'none';
+        programGrid.style.gridTemplateColumns = '1fr 1fr';
+      } else {
+        posterImg.src = 'images/poster-en.jpg';
+
+        programFrame1.style.display = 'none';
+        programFrame2.style.display = 'none';
+        programPdfWrapper.style.display = 'block';
+        programGrid.style.gridTemplateColumns = '1fr';
+
+        programPdf.src = 'images/program-en.pdf';
+      }
     }
 
     navButtons.forEach((button) => {
@@ -553,47 +535,6 @@
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();
-    function updateImages(lang){
-      const posterImg = document.getElementById('poster-img');
-      const programImg1 = document.getElementById('program-img-1');
-      const programImg2 = document.getElementById('program-img-2');
-
-      if(lang === 'el'){
-        posterImg.src = 'images/poster-gr.jpg';
-        programImg1.src = 'images/program-1-gr.jpg';
-        programImg2.src = 'images/program-2-gr.jpg';
-      } else {
-        posterImg.src = 'images/poster-en.jpg';
-        programImg1.src = 'images/program-1-en.jpg';
-        programImg2.src = 'images/program-2-en.jpg';
-      }
-    }
-
-    // GALLERY ARRAY
-    const galleryImages = [
-      'image_1.jpg',
-      'image_2.jpg',
-      'image_3.jpg',
-      'image_4.jpg'
-    ];
-
-    function loadGallery(){
-      const container = document.getElementById('gallery-container');
-      container.innerHTML = '';
-
-      galleryImages.forEach(img => {
-        const div = document.createElement('div');
-        div.className = 'image-frame';
-
-        const image = document.createElement('img');
-        image.src = 'images/' + img;
-
-        div.appendChild(image);
-        container.appendChild(div);
-      });
-    }
-
-    loadGallery();
 
     setLanguage('el');
     updateImages('el');
